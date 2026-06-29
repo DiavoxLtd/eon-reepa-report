@@ -28,4 +28,4 @@ A tesztelés célja, hogy az **alapvető hibák ne a megrendelői átvételen (U
 Minden teszt-kör a riport **külön verziójaként** jelenik meg (a fejléc verzióválasztójában), így a megrendelő bármikor visszanézheti a korábbi köröket és a haladást — ez biztosítja az **audit-nyomonkövethetőséget**.
 
 !!! note "Állapot"
-    A riport **felépítve, tartalom-feltöltés alatt** — az első teszt-kör eredményei hamarosan kerülnek be.
+    **1. teszt-kör folyamatban** — a Céges adatok 1–2. lépésének leletei feltöltve (lásd [Leletek](leletek.md)). Következik: a 3–6. lépés, a termelőegység-ág, valamint a tablet/mobil nézetek.
