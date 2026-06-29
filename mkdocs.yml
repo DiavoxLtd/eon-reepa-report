@@ -1,0 +1,56 @@
+site_name: EON REEPA — Tesztriport
+site_description: Az EON REEPA adatbekero urlap tesztelesi riportja (ISO/IEC/IEEE 29119-3:2021)
+site_author: Diavox Kft.
+copyright: "&copy; 2026 Diavox Kft. — E.ON REEPA tesztelesi projekt"
+
+theme:
+  name: material
+  language: hu
+  palette:
+    - scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-night
+        name: Sotet mod
+    - scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-sunny
+        name: Vilagos mod
+  features:
+    - navigation.sections
+    - navigation.top
+    - navigation.tracking
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+
+extra_css:
+  - stylesheets/extra.css
+
+extra:
+  version:
+    provider: mike
+    default: latest
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - footnotes
+  - toc:
+      permalink: true
+  - pymdownx.superfences
+  - pymdownx.details
+
+nav:
+  - "Áttekintés": index.md
+  - "Teszt-stratégia": teszt-strategia.md
+  - "Leletek": leletek.md
+  - "Követhetőség (RTM)": rtm.md
+  - "Akadálymentesség (ACR)": akadalymentesseg.md
+  - "Tesztjegyzőkönyv": tesztjegyzokonyv.md
