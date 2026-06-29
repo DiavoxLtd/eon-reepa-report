@@ -358,10 +358,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#lelet-formatum" class="md-nav__link">
+  <a href="#osszefoglalo" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Lelet-formátum
+        Összefoglaló
       
     </span>
   </a>
@@ -369,10 +369,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#osszefoglalo" class="md-nav__link">
+  <a href="#kiemelt-leletek-reszletesen" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Összefoglaló
+        Kiemelt leletek (részletesen)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#megerositett-megfeleloseg-a-korabban-feltetelezett-hibak-az-implementacioban-rendben" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✅ Megerősített megfelelőség (a korábban feltételezett hibák az implementációban rendben)
       
     </span>
   </a>
@@ -495,10 +506,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#lelet-formatum" class="md-nav__link">
+  <a href="#osszefoglalo" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Lelet-formátum
+        Összefoglaló
       
     </span>
   </a>
@@ -506,10 +517,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#osszefoglalo" class="md-nav__link">
+  <a href="#kiemelt-leletek-reszletesen" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Összefoglaló
+        Kiemelt leletek (részletesen)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#megerositett-megfeleloseg-a-korabban-feltetelezett-hibak-az-implementacioban-rendben" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✅ Megerősített megfelelőség (a korábban feltételezett hibák az implementációban rendben)
       
     </span>
   </a>
@@ -534,54 +556,147 @@
 
 
 <h1 id="leletek">Leletek<a class="headerlink" href="#leletek" title="Permanent link">&para;</a></h1>
-<p>A talált eltérések egységes, követhető formátumban. Minden lelet <strong>bizonyítékkal</strong> (képernyőkép / reprodukciós lépések) és <strong>súlyozással</strong> dokumentált.</p>
-<h2 id="lelet-formatum">Lelet-formátum<a class="headerlink" href="#lelet-formatum" title="Permanent link">&para;</a></h2>
-<p>Minden lelet az alábbi négy blokkból áll:</p>
-<ol>
-<li><strong>Miért fontos? Mit jelent?</strong> — a vizsgált szempont és jelentősége</li>
-<li><strong>Mit látunk a felületen?</strong> — a konkrét megfigyelés (képernyő, reprodukció, bizonyíték)</li>
-<li><strong>Hogyan javítsuk?</strong> — javasolt megoldás</li>
-<li><strong>Forrás</strong> — a követelmény/terv hivatkozás</li>
-</ol>
-<p>…kiegészítve: <strong>réteg · severity · priority · böngésző/nézet · státusz</strong>.</p>
-<div class="admonition example">
-<p class="admonition-title">Lelet-sablon</p>
-<p><strong>[L-000] Lelet címe</strong> — <span class="sev-s3">S3</span> <span class="prio-p3">P3</span> · <em>réteg</em> · <em>böngésző/nézet</em></p>
-<ul>
-<li><strong>Miért fontos?</strong> …</li>
-<li><strong>Mit látunk?</strong> … <em>(képernyőkép)</em></li>
-<li><strong>Hogyan javítsuk?</strong> …</li>
-<li><strong>Forrás:</strong> …</li>
-</ul>
+<p>A talált eltérések egységes, követhető formátumban — <strong>severity</strong> (hatás) és <strong>priority</strong> (sürgősség) szerint súlyozva, böngésző/nézet bontásban.</p>
+<div class="admonition info">
+<p class="admonition-title">1. teszt-kör — állapot</p>
+<p><strong>Vizsgálva:</strong> belépés → feltételek → kezdőoldal → <strong>Céges adatok 1–2. lépés</strong> (Szerződéses adatok, Céginformációk).
+<strong>Böngésző:</strong> Chromium ✅ · Firefox ✅ (vizuálisan konzisztens) · Edge = Chromium-motor · Safari (WebKit): folyamatban.
+<strong>Nézet:</strong> desktop (tablet/mobil + a 3–6. lépés + termelőegység: következő adag).</p>
 </div>
 <h2 id="osszefoglalo">Összefoglaló<a class="headerlink" href="#osszefoglalo" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
+<th>ID</th>
 <th>Lelet</th>
-<th>Réteg</th>
 <th>Severity</th>
 <th>Priority</th>
-<th>Státrusz</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><em>(az első teszt-kör után töltődik)</em></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>L-007</td>
+<td>HU→EN nyelvváltás nem fordít (a felület magyar marad)</td>
+<td><span class="sev-s1">S1</span></td>
+<td><span class="prio-p1">P1</span></td>
+</tr>
+<tr>
+<td>L-002</td>
+<td>„KÁT-ba lépés ideje (ha releváns)" kötelezőként validál (opcionális helyett)</td>
+<td><span class="sev-s2">S2</span></td>
+<td><span class="prio-p2">P2</span></td>
+</tr>
+<tr>
+<td>L-006</td>
+<td>Validációs hibaüzenet a nyers technikai mezőnevet írja ki</td>
+<td><span class="sev-s2">S2</span></td>
+<td><span class="prio-p2">P2</span></td>
+</tr>
+<tr>
+<td>L-008</td>
+<td>„Helyrajzi szám" kötelező a teljes cím mellett (hrsz↔cím XOR hiányzik)</td>
+<td><span class="sev-s2">S2</span></td>
+<td><span class="prio-p2">P2</span></td>
+</tr>
+<tr>
+<td>L-001</td>
+<td>A „Nem" alapérték nincs előre kiválasztva a toggle-öknél</td>
+<td><span class="sev-s3">S3</span></td>
+<td><span class="prio-p2">P2</span></td>
+</tr>
+<tr>
+<td>L-009</td>
+<td>„Származási garancia számlaszáma" feleslegesen kötelező</td>
+<td><span class="sev-s3">S3</span></td>
+<td><span class="prio-p3">P3</span></td>
+</tr>
+<tr>
+<td>L-012</td>
+<td>„Vissza &amp; Mentés" gomb — a követelmény szerint a Vissza nem ment</td>
+<td><span class="sev-s3">S3</span></td>
+<td><span class="prio-p3">P3</span></td>
+</tr>
+<tr>
+<td>L-011</td>
+<td>Duplikált „Számlaszám" mező a „Származási garancia számlaszáma" mellett</td>
+<td><span class="sev-s4">S4</span></td>
+<td><span class="prio-p3">P3</span></td>
+</tr>
+<tr>
+<td>L-003</td>
+<td>Kitöltöttség-kör „%"-ot mutat „0%" helyett</td>
+<td><span class="sev-s4">S4</span></td>
+<td><span class="prio-p3">P3</span></td>
+</tr>
+<tr>
+<td>L-004</td>
+<td>Szöveg-eltérés (feltételek↔kezdőoldal) + hiányzó vessző</td>
+<td><span class="sev-s4">S4</span></td>
+<td><span class="prio-p3">P3</span></td>
+</tr>
+<tr>
+<td>L-010</td>
+<td>Dupla szóköz egyes mező-feliratokban</td>
+<td><span class="sev-s4">S4</span></td>
+<td><span class="prio-p4">P4</span></td>
+</tr>
+<tr>
+<td>L-005</td>
+<td>Progress-jelző 15%-ot mutat üres űrlapnál</td>
+<td><span class="sev-s4">S4</span></td>
+<td><span class="prio-p4">P4</span></td>
 </tr>
 </tbody>
 </table>
-<div class="admonition note">
-<p class="admonition-title">Állapot</p>
-<p>A leletek az <strong>első teszt-kör</strong> során kerülnek ide, az élő dev-környezeten végzett vizsgálat alapján.</p>
+<h2 id="kiemelt-leletek-reszletesen">Kiemelt leletek (részletesen)<a class="headerlink" href="#kiemelt-leletek-reszletesen" title="Permanent link">&para;</a></h2>
+<div class="admonition danger">
+<p class="admonition-title">L-007 — A HU→EN nyelvváltás nem működik · <span class='sev-s1'>S1</span> <span class='prio-p1'>P1</span></p>
+<ul>
+<li><strong>Miért fontos?</strong> A követelmény kétnyelvű (HU/EN) űrlapot ír elő.</li>
+<li><strong>Mit látunk?</strong> A nyelvválasztót „EN"-re állítva a teljes felület <strong>magyar marad</strong> — cím, mezőnevek, gombok, hibaüzenetek egyaránt.</li>
+<li><strong>Hogyan javítsuk?</strong> Az angol fordítás (lokalizáció) biztosítása minden szöveges elemre.</li>
+<li><strong>Forrás:</strong> UKT (kétnyelvűség kötelező); reprodukálva az élő dev-en (desktop, Chromium).</li>
+</ul>
 </div>
 <div class="admonition warning">
+<p class="admonition-title">L-002 — A „KÁT-ba lépés ideje (ha releváns)" kötelező · <span class='sev-s2'>S2</span> <span class='prio-p2'>P2</span></p>
+<ul>
+<li><strong>Miért fontos?</strong> Opcionális mezőt nem szabad kötelezőként kikényszeríteni — blokkolja a továbblépést.</li>
+<li><strong>Mit látunk?</strong> Üres „Tovább"-ra a validáció kimondja: <em>„A(z) „KÁT-ba lépés ideje (ha releváns)" mező kitöltése kötelező."</em></li>
+<li><strong>Hogyan javítsuk?</strong> A mező kötelezőségének levétele (a „ha releváns" jelzésnek megfelelően).</li>
+<li><strong>Forrás:</strong> mező-validációs specifikáció (KÁT-ba lépés = nem kötelező).</li>
+</ul>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">L-006 — Hibaüzenet a nyers technikai mezőnevet mutatja · <span class='sev-s2'>S2</span> <span class='prio-p2'>P2</span></p>
+<ul>
+<li><strong>Miért fontos?</strong> A QA-elvárás szerint a hibaüzenetek legyenek beszédesek és érthetők.</li>
+<li><strong>Mit látunk?</strong> A toggle-mezőknél a hibaüzenet a belső azonosítót írja ki (pl. <em>„system_level_service" mező kitöltése kötelező</em>) a magyar felirat helyett.</li>
+<li><strong>Hogyan javítsuk?</strong> A felhasználóbarát mezőnév (label) használata a hibaüzenetekben.</li>
+<li><strong>Forrás:</strong> élő dev (1. lépés validáció).</li>
+</ul>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">L-008 — A „Helyrajzi szám" kötelező a teljes cím mellett · <span class='sev-s2'>S2</span> <span class='prio-p2'>P2</span></p>
+<ul>
+<li><strong>Miért fontos?</strong> Üzleti szabály: <strong>vagy</strong> helyrajzi szám, <strong>vagy</strong> címadatok adandók meg (XOR), nem mindkettő kötelezően.</li>
+<li><strong>Mit látunk?</strong> A 2. lépésben minden cím-mező (irányítószám, település, közterület, házszám) <strong>és</strong> a helyrajzi szám is kötelező.</li>
+<li><strong>Hogyan javítsuk?</strong> A „hrsz vagy cím" feltételes kötelezőség implementálása.</li>
+<li><strong>Forrás:</strong> mező-validációs specifikáció (hrsz XOR cím).</li>
+</ul>
+</div>
+<h2 id="megerositett-megfeleloseg-a-korabban-feltetelezett-hibak-az-implementacioban-rendben">✅ Megerősített megfelelőség (a korábban feltételezett hibák az implementációban rendben)<a class="headerlink" href="#megerositett-megfeleloseg-a-korabban-feltetelezett-hibak-az-implementacioban-rendben" title="Permanent link">&para;</a></h2>
+<p>A korábbi terv-/specifikáció-alapú feltételezések egy részét az élő teszt <strong>cáfolta</strong> — ezek a pontok rendben:</p>
+<ul>
+<li><strong>Dátum-formátum helyes</strong> (<code>éééé-hh-nn</code>, magyar) — nem amerikai formátum.</li>
+<li><strong>Cégforma = legördülő lista</strong>, <strong>Cégbejegyzés országa</strong> helyes felirattal + alapérték „Magyarország".</li>
+<li><strong>Cégbejegyzés dátuma</strong> mező megvan (dátumválasztó).</li>
+<li><strong>Mező-feliratok megjelennek</strong> (nem csak rákattintáskor); a kliensoldali validáció helyesen blokkol.</li>
+<li><strong>Cross-browser:</strong> Chromium ↔ Firefox vizuálisan konzisztens.</li>
+</ul>
+<div class="admonition warning">
 <p class="admonition-title">Bizalmas leletek</p>
-<p>A <strong>biztonsági</strong> és egyéb érzékeny jellegű megállapítások <strong>nem</strong> ebben a publikus riportban, hanem külön, bizalmas csatornán kerülnek átadásra a megrendelőnek és a fejlesztőnek.</p>
+<p>A biztonsági és egyéb érzékeny jellegű megállapítások nem ebben a publikus riportban, hanem külön, bizalmas csatornán kerülnek átadásra.</p>
 </div>
 
 
