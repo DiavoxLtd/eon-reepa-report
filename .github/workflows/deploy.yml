@@ -34,5 +34,5 @@ jobs:
 
       - name: Deploy versioned docs (mike)
         run: |
-          mike deploy --push --update-aliases 0.1 latest
+          mike deploy --push --update-aliases 1.0-UAT1 latest
           mike set-default --push latest

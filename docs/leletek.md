@@ -1,64 +1,56 @@
 # Leletek
 
-A talált eltérések egységes, követhető formátumban — **severity** (hatás) és **priority** (sürgősség) szerint súlyozva, böngésző/nézet bontásban.
+A talált eltérések egységes, követhető formátumban — **severity** (hatás) és **priority** (sürgősség) szerint súlyozva.
 
-!!! info "1. teszt-kör — állapot"
-    **Vizsgálva:** belépés → feltételek → kezdőoldal → **Céges adatok 1–2. lépés** (Szerződéses adatok, Céginformációk).
-    **Böngésző:** Chromium ✅ · Firefox ✅ (vizuálisan konzisztens) · Edge = Chromium-motor · Safari (WebKit): folyamatban.
-    **Nézet:** desktop (tablet/mobil + a 3–6. lépés + termelőegység: következő adag).
+!!! success "1. teszt-kör — lezárva"
+    **Vizsgálva:** a **teljes űrlap** — belépés → feltételek → kezdőoldal → **Céges adatok (1–6. lépés)** → **Termelőegység-ág** (Naperőmű · Szélerőmű · Energiatároló · Egyéb).
+    **Böngésző:** Chromium ✅ · Firefox ✅ · Edge (Chromium-motor) ✅ · Safari: külön (következő kör).
+    **Nézet:** desktop + **mobil** (390 px — nincs vízszintes túlcsordulás, kitölthető).
+    **Eredmény: 19 lelet** + jelentős megerősített megfelelőség.
 
 ## Összefoglaló
 
-| ID | Lelet | Severity | Priority |
+| ID | Lelet | Sev | Prio |
 |---|---|---|---|
 | L-007 | HU→EN nyelvváltás nem fordít (a felület magyar marad) | <span class="sev-s1">S1</span> | <span class="prio-p1">P1</span> |
-| L-002 | „KÁT-ba lépés ideje (ha releváns)" kötelezőként validál (opcionális helyett) | <span class="sev-s2">S2</span> | <span class="prio-p2">P2</span> |
+| L-002 | „KÁT-ba lépés ideje (ha releváns)" kötelezőként validál | <span class="sev-s2">S2</span> | <span class="prio-p2">P2</span> |
 | L-006 | Validációs hibaüzenet a nyers technikai mezőnevet írja ki | <span class="sev-s2">S2</span> | <span class="prio-p2">P2</span> |
 | L-008 | „Helyrajzi szám" kötelező a teljes cím mellett (hrsz↔cím XOR hiányzik) | <span class="sev-s2">S2</span> | <span class="prio-p2">P2</span> |
+| L-016 | Naperőmű: „PV Panel orientáció (maximum)" hiányzik, „dőlésszög (maximum)" duplikált | <span class="sev-s2">S2</span> | <span class="prio-p2">P2</span> |
 | L-001 | A „Nem" alapérték nincs előre kiválasztva a toggle-öknél | <span class="sev-s3">S3</span> | <span class="prio-p2">P2</span> |
 | L-009 | „Származási garancia számlaszáma" feleslegesen kötelező | <span class="sev-s3">S3</span> | <span class="prio-p3">P3</span> |
 | L-012 | „Vissza & Mentés" gomb — a követelmény szerint a Vissza nem ment | <span class="sev-s3">S3</span> | <span class="prio-p3">P3</span> |
-| L-011 | Duplikált „Számlaszám" mező a „Származási garancia számlaszáma" mellett | <span class="sev-s4">S4</span> | <span class="prio-p3">P3</span> |
-| L-003 | Kitöltöttség-kör „%"-ot mutat „0%" helyett | <span class="sev-s4">S4</span> | <span class="prio-p3">P3</span> |
-| L-004 | Szöveg-eltérés (feltételek↔kezdőoldal) + hiányzó vessző | <span class="sev-s4">S4</span> | <span class="prio-p3">P3</span> |
-| L-010 | Dupla szóköz egyes mező-feliratokban | <span class="sev-s4">S4</span> | <span class="prio-p4">P4</span> |
-| L-005 | Progress-jelző 15%-ot mutat üres űrlapnál | <span class="sev-s4">S4</span> | <span class="prio-p4">P4</span> |
+| L-013 | Inkonzisztens default-kiválasztás (1. lépés toggle vs Képviselet módja) | <span class="sev-s3">S3</span> | <span class="prio-p3">P3</span> |
+| L-015 | A tulajdonos „Név" mezője nem kötelező (a 3. lépésben kötelező) | <span class="sev-s3">S3</span> | <span class="prio-p3">P3</span> |
+| L-018 | Kötelezőség-inkonzisztencia a cím-mezőknél termelőegység-típusonként | <span class="sev-s3">S3</span> | <span class="prio-p3">P3</span> |
+| L-019 | Energiatároló: feltételes méret-mezők mindig láthatók (nem a toggle-ra) | <span class="sev-s3">S3</span> | <span class="prio-p3">P3</span> |
+| L-003/004/005/010/011/014/017 | Kozmetikai / szöveg (%, dupla szóköz, hiányzó vessző, progress, hiányzó `*`…) | <span class="sev-s4">S4</span> | <span class="prio-p4">P3–P4</span> |
 
-## Kiemelt leletek (részletesen)
+## Kiemelt leletek
 
 !!! danger "L-007 — A HU→EN nyelvváltás nem működik · <span class='sev-s1'>S1</span> <span class='prio-p1'>P1</span>"
     - **Miért fontos?** A követelmény kétnyelvű (HU/EN) űrlapot ír elő.
-    - **Mit látunk?** A nyelvválasztót „EN"-re állítva a teljes felület **magyar marad** — cím, mezőnevek, gombok, hibaüzenetek egyaránt.
-    - **Hogyan javítsuk?** Az angol fordítás (lokalizáció) biztosítása minden szöveges elemre.
-    - **Forrás:** UKT (kétnyelvűség kötelező); reprodukálva az élő dev-en (desktop, Chromium).
+    - **Mit látunk?** A nyelvválasztót „EN"-re állítva a teljes felület **magyar marad** (cím, mezők, gombok, hibaüzenetek).
+    - **Hogyan javítsuk?** Az angol lokalizáció biztosítása minden szöveges elemre.
 
-!!! warning "L-002 — A „KÁT-ba lépés ideje (ha releváns)" kötelező · <span class='sev-s2'>S2</span> <span class='prio-p2'>P2</span>"
-    - **Miért fontos?** Opcionális mezőt nem szabad kötelezőként kikényszeríteni — blokkolja a továbblépést.
-    - **Mit látunk?** Üres „Tovább"-ra a validáció kimondja: *„A(z) „KÁT-ba lépés ideje (ha releváns)" mező kitöltése kötelező."*
-    - **Hogyan javítsuk?** A mező kötelezőségének levétele (a „ha releváns" jelzésnek megfelelően).
-    - **Forrás:** mező-validációs specifikáció (KÁT-ba lépés = nem kötelező).
+!!! warning "L-016 — Naperőmű: orientáció (maximum) hiányzik, dőlésszög (maximum) duplikált · <span class='sev-s2'>S2</span> <span class='prio-p2'>P2</span>"
+    - **Miért fontos?** A panel-orientáció maximuma így **nem rögzíthető**, a dőlésszög maximuma kétszer kérdezett — hibás műszaki adatrögzítés.
+    - **Mit látunk?** „PV Panel orientáció (minimum)" + „PV Panel dőlésszög (maximum)" egy sorban, majd lejjebb „PV Panel dőlésszög (minimum)" + „dőlésszög (maximum)" ismét.
+    - **Hogyan javítsuk?** Az orientáció (maximum) mező pótlása; a dőlésszög (maximum) deduplikálása.
 
-!!! warning "L-006 — Hibaüzenet a nyers technikai mezőnevet mutatja · <span class='sev-s2'>S2</span> <span class='prio-p2'>P2</span>"
-    - **Miért fontos?** A QA-elvárás szerint a hibaüzenetek legyenek beszédesek és érthetők.
-    - **Mit látunk?** A toggle-mezőknél a hibaüzenet a belső azonosítót írja ki (pl. *„system_level_service" mező kitöltése kötelező*) a magyar felirat helyett.
-    - **Hogyan javítsuk?** A felhasználóbarát mezőnév (label) használata a hibaüzenetekben.
-    - **Forrás:** élő dev (1. lépés validáció).
-
-!!! warning "L-008 — A „Helyrajzi szám" kötelező a teljes cím mellett · <span class='sev-s2'>S2</span> <span class='prio-p2'>P2</span>"
-    - **Miért fontos?** Üzleti szabály: **vagy** helyrajzi szám, **vagy** címadatok adandók meg (XOR), nem mindkettő kötelezően.
-    - **Mit látunk?** A 2. lépésben minden cím-mező (irányítószám, település, közterület, házszám) **és** a helyrajzi szám is kötelező.
-    - **Hogyan javítsuk?** A „hrsz vagy cím" feltételes kötelezőség implementálása.
-    - **Forrás:** mező-validációs specifikáció (hrsz XOR cím).
+!!! warning "L-002 / L-006 / L-008 — validáció és kötelezőség · <span class='sev-s2'>S2</span>"
+    - **L-002:** a „KÁT-ba lépés ideje (ha releváns)" opcionális mezőt kötelezőként kéri.
+    - **L-006:** a hibaüzenet a belső azonosítót írja ki (pl. *„system_level_service"*) a magyar felirat helyett.
+    - **L-008:** a „Helyrajzi szám" kötelező a teljes cím mellett — a „hrsz **vagy** cím" üzleti szabály hiányzik.
 
 ## ✅ Megerősített megfelelőség (a korábban feltételezett hibák az implementációban rendben)
 
-A korábbi terv-/specifikáció-alapú feltételezések egy részét az élő teszt **cáfolta** — ezek a pontok rendben:
+Az élő teszt **cáfolta** a régi terv-/spec-feltevések jelentős részét — ezek a pontok rendben, a felület érettebb a dokumentumoknál:
 
-- **Dátum-formátum helyes** (`éééé-hh-nn`, magyar) — nem amerikai formátum.
-- **Cégforma = legördülő lista**, **Cégbejegyzés országa** helyes felirattal + alapérték „Magyarország".
-- **Cégbejegyzés dátuma** mező megvan (dátumválasztó).
-- **Mező-feliratok megjelennek** (nem csak rákattintáskor); a kliensoldali validáció helyesen blokkol.
-- **Cross-browser:** Chromium ↔ Firefox vizuálisan konzisztens.
+- **Dátum-formátum helyes** (`éééé-hh-nn`); **Cégforma / Cégbejegyzés országa / Közterület jellege = legördülő** lista, alapérték „Magyarország"; **Cégbejegyzés dátuma** megvan.
+- **Ismétlő blokkok** („+ további személy / tulajdonos / erőmű") és a **feltételes mezők** (Magánszemély/Cég) működnek.
+- **Tracking szótár** rendben (1 tengelyes / 2 tengelyes / Fix); mező-magyarázatok (POD, %/°C, AC/DC) jól vezetik a kitöltést.
+- **Kliensoldali validáció** beszédesen blokkol; **cross-browser** (Chromium↔Firefox) konzisztens; **mobil** nem törik szét.
 
 !!! warning "Bizalmas leletek"
     A biztonsági és egyéb érzékeny jellegű megállapítások nem ebben a publikus riportban, hanem külön, bizalmas csatornán kerülnek átadásra.
